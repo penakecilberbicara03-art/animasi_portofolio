@@ -792,6 +792,77 @@ section{
     translateX(-50%)
     translateY(-4px);
 }
+
+  /* ========================================== */
+/* STYLE PLAYLIST MUSIK UNTUK BOOKS & NOTES  */
+/* ========================================== */
+
+/* Membuat container card agar sejajar ke samping & responsif */
+.music-style-grid {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; /* Supaya otomatis turun ke bawah kalau di HP */
+}
+
+/* Base Card bertema Gelap Transparan ala Spotify */
+.music-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 20px;
+  width: 100%;
+  max-width: 360px; /* Batas lebar maksimal card */
+  transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+  backdrop-filter: blur(12px);
+}
+
+/* Efek interaktif saat kursor diarahkan ke card (Hover) */
+.music-card:hover {
+  transform: translateY(-10px) scale(1.02); /* Angkat card sedikit ke atas */
+  border-color: rgba(201,168,76,0.35); /* Ubah border jadi warna gold tipis */
+  box-shadow: 0 25px 50px rgba(0,0,0,0.55), 0 0 30px rgba(201,168,76,0.1); /* Efek bayangan glow */
+}
+
+/* Frame Gambar: Mengunci gambar agar kotak sempurna (1:1) */
+.music-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.music-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mencegah gambar gepeng/distorsi */
+  transition: transform 0.6s ease;
+}
+
+/* Efek zoom tipis pada gambar saat card di-hover */
+.music-card:hover .music-card-image img {
+  transform: scale(1.06);
+}
+
+/* Pengaturan Teks di Bawah Gambar */
+.music-card-content {
+  text-align: left; /* Teks rata kiri biar rapi */
+}
+
+.music-card-content h3 {
+  margin: 8px 0 12px 0;
+  font-size: 26px;
+  font-family: var(--serif); /* Pakai font Cormorant Garamond bawaan lu */
+  color: var(--cream);
+}
+
+.music-card-content p {
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  font-size: 14px;
+}
 </style>
 </head>
 <body>
@@ -972,15 +1043,32 @@ section{
   </div>
 </section>
 
-<section id="books">
+<!-- ========================================== -->
+<!-- SEKSI BOOKS & NOTES (LAYOUT ALA BAR MUSIK) -->
+<!-- ========================================== -->
+<section id="hobbies">
   <div class="reveal">
-    <h2 class="section-title">Books & Notes</h2>
+    <div class="section-head">
+      <div class="section-icon">
+        <!-- Icon Buku/Catatan Minimalis -->
+        <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a9 9 0 0 0-9-9zm-1 16H5v-2h6zm0-4H5v-2h6zm7 4h-5v-2h5zm0-4h-5v-2h5z"/></svg>
+      </div>
+      <h2 class="section-title">Books & Notes</h2>
+    </div>
     <p class="section-sub">Beberapa buku dan catatan yang cukup memengaruhi cara saya melihat kehidupan, kreativitas, dan proses belajar.</p>
   </div>
-  <div class="projects-grid">
-    <div class="project-card reveal">
-      <img src="https://i.ibb.co.com/tPwGXnz0/IMG-20260222-WA0009.jpg">
-      <div class="project-content">
+
+  <!-- Container pembungkus card hobi baru -->
+  <div class="music-style-grid">
+    
+    <!-- Card 1: Bagian Literature -->
+    <div class="music-card reveal">
+      <div class="music-card-image">
+        <!-- Gambar Cover Buku Berada di Atas -->
+        <img src="https://i.ibb.co.com/tPwGXnz0/IMG-20260222-WA0009.jpg" alt="Literature & Poetry">
+      </div>
+      <div class="music-card-content">
+        <!-- Tulisan/Keterangan Berada di Bawah Gambar -->
         <div class="project-year">Reading</div>
         <h3>Literature & Poetry</h3>
         <p>Menikmati karya sastra dan puisi untuk mencari sudut pandang baru tentang manusia, emosi, dan kehidupan.</p>
@@ -991,9 +1079,15 @@ section{
         </div>
       </div>
     </div>
-    <div class="project-card reveal">
-      <img src="https://i.ibb.co.com/35JVmHdd/Screenshot-20260511-222658.jpg">
-      <div class="project-content">
+
+    <!-- Card 2: Bagian Writer -->
+    <div class="music-card reveal">
+      <div class="music-card-image">
+        <!-- Gambar Screenshot Catatan Berada di Atas -->
+        <img src="https://i.ibb.co.com/35JVmHdd/Screenshot-20260511-222658.jpg" alt="Writing & Reflection">
+      </div>
+      <div class="music-card-content">
+        <!-- Tulisan/Keterangan Berada di Bawah Gambar -->
         <div class="project-year">Personal Notes</div>
         <h3>Writing & Reflection</h3>
         <p>Menulis catatan kecil, ide, dan lirik sebagai cara untuk menyimpan pengalaman dan proses berpikir.</p>
@@ -1004,6 +1098,7 @@ section{
         </div>
       </div>
     </div>
+
   </div>
 </section>
 

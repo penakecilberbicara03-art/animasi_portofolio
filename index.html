@@ -142,18 +142,35 @@
       margin-bottom: 20px;
     }
 
-    .section-icon {
-      width: 70px;
-      height: 70px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: floatIcon 4s ease-in-out infinite;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
+    /* ---- CARI DAN GANTI BAGIAN INI DI CSS LU ---- */
+.section-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  position: relative; /* Pastikan ini ada biar efek pulse-nya rapi */
+}
+
+/* ---- TAMBAHKAN KODE BARU INI TEPAT DI BAWAH .section-icon ---- */
+.section-icon::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 24px;
+  border: 1px solid var(--gold);
+  opacity: 0;
+  animation: iconPulse 3s infinite;
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 0; }
+}
 
     .section-icon svg {
       width: 28px;
@@ -188,38 +205,58 @@
       gap: 60px;
     }
 
-    .hero-mini {
-      color: var(--gold);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-size: 12px;
-    }
+    /* ---- CARI DAN GANTI BAGIAN INI DI CSS LU ---- */
+.hero-mini {
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 12px;
+  /* Tambahan Animasi */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+}
 
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(64px, 10vw, 120px);
-      line-height: 0.9;
-      margin: 20px 0;
-    }
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(64px, 10vw, 120px);
+  line-height: 0.9;
+  margin: 20px 0;
+  /* Tambahan Animasi */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
+}
 
-    .hero h1 span {
-      color: var(--gold-light);
-      font-style: italic;
-    }
+.hero p {
+  max-width: 520px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+  font-size: 16px;
+  /* Tambahan Animasi */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.6s;
+}
 
-    .hero p {
-      max-width: 520px;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.8;
-      font-size: 16px;
-    }
+.hero-actions {
+  margin-top: 40px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  /* Tambahan Animasi */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.8s;
+}
 
-    .hero-actions {
-      margin-top: 40px;
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
+/* ---- TAMBAHKAN KEYFRAMES BARU INI DI BAWAHNYA ---- */
+@keyframes heroFadeIn {
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
 
     .btn {
       padding: 16px 28px;

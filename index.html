@@ -1040,20 +1040,24 @@ box-shadow:
 0 0 20px rgba(201,168,76,.4);
 }
 
-.loader{
+.loader {
   position: fixed;
   inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999999;
+  background: radial-gradient(circle at center, rgba(201,168,76,0.25), #0b0d10 60%, #070809);
 
-  background: radial-gradient(
-    circle at center,
-    rgba(201,168,76,0.25),
-    #0b0d10 60%,
-    #070809
-  );
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .loader-text{
@@ -1346,57 +1350,61 @@ animation-delay:1.2s;
       <p class="section-sub">Beberapa project yang pernah dan sedang saya kerjakan.</p>
     </div>
     <div class="projects-grid">
-      <div class="project-card reveal">
-        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200" alt="Project 1">
-        <div class="project-content">
-          <div class="project-year">2026</div>
-          <h3>MyBCA Redesign</h3>
-          <p>Analisis HCI dan redesign aplikasi mobile banking menggunakan pendekatan modern UI/UX.</p>
-          <div class="tags">
-            <div class="tag">Figma</div>
-            <div class="tag">UI/UX</div>
-            <div class="tag">Research</div>
-          </div>
-          <div class="project-links">
-            <a href="#">Preview</a>
-            <a href="#">Github</a>
-          </div>
-        </div>
+
+  <div class="project-card reveal">
+    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200" alt="Project 1">
+    <div class="project-content">
+      <div class="project-year">2026</div>
+      <h3>MyBCA Redesign</h3>
+      <p>Analisis HCI dan redesign aplikasi mobile banking menggunakan pendekatan modern UI/UX.</p>
+      <div class="tags">
+        <div class="tag">Figma</div>
+        <div class="tag">UI/UX</div>
+        <div class="tag">Research</div>
       </div>
-      <div class="project-card reveal">
-        <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=1200" alt="Project 2">
-        <div class="project-content">
-          <div class="project-year">2026</div>
-          <h3>Music & Lyrics</h3>
-          <p>Menulis lagu dan lirik sebagai media untuk mengabadikan emosi dan cerita.</p>
-          <div class="tags">
-            <div class="tag">Music</div>
-            <div class="tag">Acoustic</div>
-            <div class="tag">Lyrics</div>
-          </div>
-          <div class="project-links">
-            <a href="#">Preview</a>
-            <a href="#">Listen</a>
-          </div>
-        </div>
+      <div class="project-links">
+        <a href="#">Preview</a>
+        <a href="#">Github</a>
       </div>
-    </div>
-    <div class="project-card reveal">
-  <img src="https://i.ibb.co.com/z3syNbY/Screenshot-2026-05-19-043439.png" alt="Personal Jurnal">
-  <div class="project-content">
-    <div class="project-year">2026</div>
-    <h3>Personal Journal</h3>
-    <p>Kumpulan catatan pribadi yang berisi pemikiran, pengalaman, dan refleksi dalam menjalani kehidupan sehari-hari.</p>
-    <div class="tags">
-      <div class="tag">Writing</div>
-      <div class="tag">Reflection</div>
-      <div class="tag">Journal</div>
-    </div>
-    <div class="project-links">
-      <a href="#">Preview</a>
-      <a href="#">Details</a>
     </div>
   </div>
+
+  <div class="project-card reveal">
+    <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=1200" alt="Project 2">
+    <div class="project-content">
+      <div class="project-year">2026</div>
+      <h3>Music & Lyrics</h3>
+      <p>Menulis lagu dan lirik sebagai media untuk mengabadikan emosi dan cerita.</p>
+      <div class="tags">
+        <div class="tag">Music</div>
+        <div class="tag">Acoustic</div>
+        <div class="tag">Lyrics</div>
+      </div>
+      <div class="project-links">
+        <a href="#">Preview</a>
+        <a href="#">Listen</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card reveal">
+    <img src="https://i.ibb.co.com/z3syNbY/Screenshot-2026-05-19-043439.png" alt="Personal Journal">
+    <div class="project-content">
+      <div class="project-year">2026</div>
+      <h3>Personal Journal</h3>
+      <p>Kumpulan catatan pribadi yang berisi pemikiran, pengalaman, dan refleksi dalam menjalani kehidupan sehari-hari.</p>
+      <div class="tags">
+        <div class="tag">Writing</div>
+        <div class="tag">Reflection</div>
+        <div class="tag">Journal</div>
+      </div>
+      <div class="project-links">
+        <a href="#">Preview</a>
+        <a href="#">Details</a>
+      </div>
+    </div>
+  </div>
+
 </div>
   </section>
 
@@ -1613,6 +1621,12 @@ link.classList.add(
 
 });
 
+});
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelector('.loader').classList.add('hide');
+  }, 2000);
 });
   </script>
 <div class="cursor"></div>

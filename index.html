@@ -42,11 +42,15 @@
 
     /* BACKGROUND */
     .bg {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      overflow: hidden;
-    }
+  position: fixed;
+  inset: 0;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
 
     .bg::before {
       content: '';
@@ -70,10 +74,12 @@
     }
 
     .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-    }
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+
+  animation: orbFloat 12s ease-in-out infinite;
+}
 
     .orb1 {
       width: 400px;
@@ -111,44 +117,41 @@
       transition: background .3s ease, border-color .3s ease, transform .3s ease;
     }
 
-   /* ---- GANTI KODE .logo LU DENGAN INI ---- */
-.logo {
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--gold-light);
-  
-  /* Lebar "terowongan" kita besarkan dikit biar jalannya lebih jauh dan puas dilihat */
-  width: 350px; 
-  overflow: hidden;
-  white-space: nowrap;
-  display: flex;
+  .logo{
+  width:300px;
+  overflow:hidden;
+  display:flex;
+  white-space:nowrap;
+
+  font-family:var(--serif);
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--gold-light);
 }
 
-/* ---- KODE BARU: Sebagai rel kereta biar teksnya berjejer ke samping ---- */
-.marquee-track {
-  display: flex;
-  width: max-content;
-  /* JALAN LEBIH CEPET: Ganti ke 5s (5 detik) biar meluncur pas cepatnya */
-  animation: logoJalanTerus 5s linear infinite; 
+.marquee-track{
+  display:flex;
+  flex-shrink:0;
+
+  animation:logoJalanTerus 8s linear infinite;
 }
 
-/* ---- KODE BARU: Mengatur masing-masing teks ---- */
-.marquee-track span {
-  display: inline-block;
+.marquee-track span{
+  padding-right:80px;
 }
 
-/* ---- GANTI KEYFRAMES LU DENGAN LOGIKA LOOPING INI ---- */
-@keyframes logoJalanTerus {
-  0% {
-    transform: translateX(0); /* Mulai jalan */
-  }
-  100% {
-    transform: translateX(-50%); /* Geser ke kiri tepat setengahnya, bikin efek mulus tanpa putus */
-  }
+@keyframes logoJalanTerus{
+
+0%{
+transform:translateX(0);
 }
 
+100%{
+transform:translateX(-33.33%);
+}
+
+}
     .navbar nav {
       display: flex;
       gap: 30px;
@@ -732,17 +735,16 @@
     .music-card-content .tags {
       margin-top: auto; 
     }
-
-    /* ========================================== */
-/* STYLE ELEMEN MELAYANG 3D DI BACKGROUND    */
-/* ========================================== */
-
-/* Base style untuk semua objek melayang */
 .floating-obj {
   position: absolute;
-  z-index: -1;
-  pointer-events: none; /* Biar kursor tikus bisa nembus objek ini */
-  opacity: 0.12;       /* Dibikin transparan tipis biar estetik, ga norak */
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  opacity: 0.12;
+
+  will-change: transform;
 }
 
 .floating-obj svg {
@@ -824,6 +826,21 @@
     transform: translateY(0px) translateX(0px) scale(1);
   }
 }
+    @keyframes orbFloat{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-30px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
   </style>
 </head>
 <body>
@@ -859,11 +876,19 @@
   <!-- FIXED NAVBAR -->
  <header class="navbar">
   <div class="logo">
-  <div class="marquee-track">
-    <span>WILDAN SOLEH&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <span>WILDAN SOLEH&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <span>WILDAN SOLEH&nbsp;&nbsp;&nbsp;&nbsp;</span>
-  </div>
+
+<div class="marquee-track">
+
+<span>WILDAN SOLEH</span>
+<span>WILDAN SOLEH</span>
+<span>WILDAN SOLEH</span>
+
+<span>WILDAN SOLEH</span>
+<span>WILDAN SOLEH</span>
+<span>WILDAN SOLEH</span>
+
+</div>
+
 </div>
   <nav>
       <a href="#about">About</a>

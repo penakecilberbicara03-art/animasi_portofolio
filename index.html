@@ -135,24 +135,6 @@
       position: relative;
     }
 
-    .nav-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.05);
-      animation: floatIcon 3s ease-in-out infinite;
-    }
-
-    .nav-icon svg {
-      width: 16px;
-      height: 16px;
-      fill: var(--gold-light);
-    }
-
     .section-head {
       display: flex;
       align-items: center;
@@ -687,7 +669,7 @@
 </head>
 <body>
 
-  <!-- BACKGROUND GRADIENT OBS -->
+  <!-- BACKGROUND GRADIENT ORBS -->
   <div class="bg">
     <div class="grid"></div>
     <div class="orb orb1"></div>
@@ -947,7 +929,7 @@
       });
     }
     window.addEventListener('scroll', revealScroll);
-    revealScroll(); // Trigger sekali di awal
+    revealScroll();
 
     // NAVBAR SCROLL EFFECT
     const navbar = document.querySelector('.navbar');
@@ -967,7 +949,7 @@
       const orb2 = document.querySelector('.orb2');
       if(orb1 && orb2) {
         orb1.style.transform = `translate(${x}px, ${y}px)`;
-        orb2.style.transform = `translate(${-x}px, ${{-y}}px)`;
+        orb2.style.transform = `translate(${-x}px, ${-y}px)`;
       }
     });
   </script>

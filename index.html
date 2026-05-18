@@ -112,12 +112,33 @@
     }
 
     .logo {
-      font-family: var(--serif);
-      font-size: 28px;
-      font-style: italic;
-      font-weight: 700;
-      color: var(--gold-light);
-    }
+  font-family: var(--serif);
+  font-size: 18px;            /* Ukuran font disesuaikan biar elegan */
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  
+  /* --- KUNCI BIAR TEKS JALAN ENGGAK NABRAK MENU NAVIGASI --- */
+  width: 160px;               /* Kita kunci lebar "terowongannya" cuma 160 pixel */
+  white-space: nowrap;        /* Biar teksnya tetep lurus sebaris, enggak patah ke bawah */
+  overflow: hidden;           /* Sembunyikan teks yang keluar dari batas 160 pixel tadi */
+}
+
+/* --- SEKARANG TAMBAHKAN KODE BARU INI TEPAT DI BAWAH KODE .logo DI ATAS --- */
+.logo span {
+  display: inline-block;
+  animation: logoJalanTerus 10s linear infinite; /* 'infinite' biar muter terus tanpa henti */
+}
+
+/* --- JALUR ANIMASINYA (DARI KIRI KE KANAN) --- */
+@keyframes logoJalanTerus {
+  0% {
+    transform: translateX(-100%); /* Mulai dari sebelah kiri luar terowongan (nggak kelihatan) */
+  }
+  100% {
+    transform: translateX(160px); /* Berjalan ke kanan sampai keluar dari batas terowongan */
+  }
+}
 
     .navbar nav {
       display: flex;
@@ -714,9 +735,11 @@
   </div>
 
   <!-- FIXED NAVBAR -->
-  <header class="navbar">
-    <div class="logo">WS.</div>
-    <nav>
+ <header class="navbar">
+  <div class="logo">
+    <span>WILDAN SOLEH</span>
+  </div>
+  <nav>
       <a href="#about">About</a>
       <a href="#journey">Journey</a>
       <a href="#projects">Projects</a>

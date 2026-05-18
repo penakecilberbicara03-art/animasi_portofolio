@@ -171,7 +171,7 @@ color:var(--gold-light);
 display:flex;
 width:max-content;
 
-animation:logoJalanTerus 8s linear infinite;
+animation:logoJalanTerus 6s linear infinite;
 }
 
 .marquee-track span{
@@ -825,7 +825,12 @@ z-index:2;
 
 pointer-events:none;
 
-filter:blur(.3px);
+box-shadow:
+0 0 30px rgba(201,168,76,.15);
+
+filter:
+blur(.3px)
+drop-shadow(0 0 20px rgba(201,168,76,.3));
 
 animation:
 jalanX linear infinite,
@@ -1003,27 +1008,40 @@ transform:translateX(-33.33%);
   <div class="orb orb2"></div>
 
 <div class="floating-obj obj1">
-<i class="fa-solid fa-music"></i>
+
+<svg viewBox="0 0 24 24">
+<path d="M12 3v12.5a2.5 2.5 0 1 1-2-2.45V6h8V3z"/>
+</svg>
+
 </div>
 
 <div class="floating-obj obj2">
-<i class="fa-solid fa-book-open"></i>
+
+<svg viewBox="0 0 24 24">
+<path d="M4 19h16v2H4zm2-4h3v3H6zm5-6h3v9h-3zm5-4h3v13h-3z"/>
+
+</svg>
+
 </div>
 
 <div class="floating-obj obj3">
-<i class="fa-solid fa-pen-nib"></i>
+
+<svg viewBox="0 0 24 24">
+
+<path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/>
+
+</svg>
+
 </div>
 
 <div class="floating-obj obj4">
-<i class="fa-solid fa-guitar"></i>
-</div>
 
-<div class="floating-obj obj5">
-<i class="fa-solid fa-headphones"></i>
-</div>
+<svg viewBox="0 0 24 24">
 
-<div class="floating-obj obj6">
-<i class="fa-solid fa-feather"></i>
+<path d="M12 2L2 7l10 5 10-5-10-5zm0 8l10-5v12l-10 5-10-5V5z"/>
+
+</svg>
+
 </div>
 </div>
 

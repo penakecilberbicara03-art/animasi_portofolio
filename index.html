@@ -187,29 +187,66 @@ transform:translateX(-33.33%);
 }
 
 }
+    .navbar{
+position:fixed;
+
+top:25px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:min(1100px,92%);
+
+padding:18px 30px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:9999;
+
+background:rgba(15,15,15,.45);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:24px;
+}
+
+.logo{
+font-family:var(--serif);
+
+font-size:24px;
+
+color:var(--gold);
+
+overflow:hidden;
+
+width:180px;
+}
     .navbar nav {
       display: flex;
       gap: 30px;
     }
 
-    .navbar nav a {
-      text-decoration: none;
-      color: rgba(255,255,255,0.7);
-      font-size: 14px;
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      position: relative;
-    }
+    .navbar nav a{
+text-decoration:none;
 
-    .section-head {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 20px;
-    }
+color:rgba(255,255,255,.7);
 
+font-size:14px;
+
+transition:.3s;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+}
     /* ---- CARI DAN GANTI BAGIAN INI DI CSS LU ---- */
 .section-icon {
   width: 70px;
@@ -1017,6 +1054,7 @@ transform:translateY(0);
 
 <div class="floating-obj obj3">
 ✏️
+</div>
 </div>
 
   <header class="navbar">

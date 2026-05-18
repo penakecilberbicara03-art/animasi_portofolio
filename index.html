@@ -539,17 +539,20 @@ section{
 
 .music-box{
   margin-top:60px;
-  position:relative;
-  overflow:hidden;
-  border-radius:32px;
-  min-height:1000px; /* Diperpanjang ke atas */
+  display:flex;
+  justify-content:center;
 }
 
 .music-box img{
   width:100%;
-  height:1000px;
-  object-fit:cover;
-  object-position: center;
+  max-width:500px;
+  height:auto;
+
+  border-radius:32px;
+  object-fit:contain;
+
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
 }
 
 .music-overlay{
@@ -565,12 +568,6 @@ section{
   font-family:var(--serif);
   font-size:56px;
   margin-bottom:12px;
-}
-
-.music-overlay p{
-  max-width:600px;
-  line-height:1.8;
-  color:rgba(255,255,255,0.7);
 }
 
 /* QUOTE */
@@ -945,21 +942,6 @@ section{
   </div>
 </section>
 
-<section id="hobbies">
-  <div class="reveal">
-    <h2 class="section-title">Hobbies & Interests</h2>
-    <p class="section-sub">Hal-hal yang sering saya lakukan di luar dunia akademik dan teknologi.</p>
-  </div>
-  <div class="hobbies-wrap reveal">
-    <div class="hobbies-chip">Music</div>
-    <div class="hobbies-chip">Band Performance</div>
-    <div class="hobbies-chip">Writing Lyrics</div>
-    <div class="hobbies-chip">Reading Books</div>
-    <div class="hobbies-chip">Photography</div>
-    <div class="hobbies-chip">Coffee Discussion</div>
-  </div>
-</section>
-
 <section id="books">
   <div class="reveal">
     <h2 class="section-title">Books & Notes</h2>
@@ -996,14 +978,6 @@ section{
 </section>
 
 <section id="music">
-  <div class="reveal">
-    <div class="section-head">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 18V7h4V3z"/></svg>
-      </div>
-      <h2 class="section-title">Music & Creativity</h2>
-    </div>
-  </div>
   <div class="music-box reveal">
     <img src="https://i.ibb.co.com/KcXmPNqK/IMG-20260426-WA0004.jpg">
     <div class="music-overlay">
